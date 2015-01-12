@@ -1,0 +1,54 @@
+body.light .dest-pane ul.dest-list li.dest-item, 
+body.light .session-pane ul.session-list li.session {
+	display: inline-table;
+}
+body.light .itin-pane .nav-item.toolbar.open, 
+body.light .session-pane.guide li.session.selected .toolbar {
+	display: flex;
+}
+#exps-modal .modal-body{
+	padding-bottom: 200px;
+	overflow-y: scroll;
+	height: 100%;
+	width:100%;
+}
+
+#exps-modal .modal-body .tab-content .table-wrapper{
+	height: 100%;
+	overflow: scroll;
+}
+#exps-modal .modal-body .btn-group:last-child{
+	right: 150px;
+	position: relative;
+	float: right;
+}
+#exps-modal .breadcrumb{
+	font-size:0.95em;
+	margin-bottom: 10px;
+}
+#exps-modal .dataTables_wrapper{
+	font-size:0.85em;
+}
+#exps-modal .dataTable{
+	font-size:1em;
+}
+.flight-meta {
+	background: transparent;
+	background-size: inherit;
+}
+
+.place-container #place-images li.exp-image img {
+	height: auto;
+}
+.chat-composer .formlet .formfield {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	min-width: 100px;
+}
+.chat-composer .formlet>* {
+	display: block;
+	line-height: 1em;
+	float: left;
+	vertical-align: sub;
+	padding: 8px;
+}

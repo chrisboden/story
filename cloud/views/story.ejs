@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Editor</title>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/libs.js"></script>
+    <meta name="description" content="Save time and hassle. Chat with an Expert & plan a better trip.">
+
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/css/medium-editor.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/story.css">
+    <link rel="stylesheet" type="text/css" href="/css/composer.css">
+    <link rel="stylesheet" type="text/css" href="/css/bugfix.css">
+
+    <% if (canEdit) { %>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22search%22%2C%22version%22%3A%221.0%22%2C%22language%22%3A%22en%22%7D%2C%7B%22name%22%3A%22elements%22%2C%22version%22%3A%221.0%22%2C%22packages%22%3A%5B%5D%7D%5D%7D%0A"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa8C0IRu9-j61vDKdweS52V_VgxmXMoS4&libraries=places,geometry&sensor=false"></script>
+    
+    <script type="text/javascript" src="/js/service-search-image.js"></script>
+    <script type="text/javascript" src="/js/uploader.js"></script>
+    <script type="text/javascript" src="/js/medium-editor.min.js"></script>
+    <script type="text/javascript" src="/js/story/composer.js"></script>
+    <script type="text/javascript" src="/js/story/compose-controller.js"></script>
+    <% } %>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'cls4bgi',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+</head>
+<body class="story">
+<article class="single">
+        <div id="story-navbar" class="story-navbar row col1-3">
+            <a href="/chats" id="butn-home" class="v-middle t-left">
+                <i class="fa fa-fw fa-home"></i>
+            </a>
+            <div id="logo" href="#" class="logo t-center v-middle">
+                <img src="https://s3.amazonaws.com/static.tripchum.com/images/tclogo.png" class="logo">
+            </div>
+            <div class="control-center edit-controls t-right v-middle">
+                <button id="story-delete" class="btn btn-danger">Delete</button>
+                <button id="story-publish" class="btn ladda-button">
+                    <span class="btn-label btn-success-label">Publish</span>
+                    <span class="btn-label btn-warning-label">Un-publish</span>
+                </button>
+            </div>
+        </div>
+        <div class="header">
+            <div class="cover"></div>
+            <div class="cover-controls">
+                <button class="btn btn-default compose-control cover-add"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-default compose-control cover-expand cover-change"><i class="fa fa-expand"></i></button>
+                <button class="btn btn-default compose-control cover-compress cover-change"><i class="fa fa-compress"></i></button>
+                <button class="btn btn-default compose-control cover-delete control-delete"><i class="fa fa-times"></i></button>
+            </div>
+            
+            <div class="header-text">
+                <div class="content">
+                    <h1 class="title" data-placeholder="Title" <% if (canEdit) {%>contenteditable<%}%>>
+                    <% if (story) { %>
+                        <%= story.title %>
+                    <% } %>
+                    </h1>
+                    <div class="meta" data-placeholder="Subtitle" <% if (canEdit) {%>contenteditable<%}%>>
+                        <% if (story) { %>
+                            <%= story.subtitle %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="editor body">
+            <div class="content">
+                <% if (story && story.content && story.content.length) { %>
+                    <%- story.content %>
+                <% } else {%>
+                <p data-placeholder="Type your story here" class="part placeholder"></p>
+                <% } %>
+            </div>
+
+        </div>
+    </article>
+</body>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" data-pin-build="tripchumPinterestBuild"></script>
+</html>
